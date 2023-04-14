@@ -1,9 +1,9 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
-
 const mailToSir = require("./mailToSir.js");
 const pdfRouter = require("./Routes/pdf.routes.js");
 const { connection } = require("./Config/db.js");
+require("dotenv").config();
 const cors = require("cors");
 const app = express();
 app.use(cors());
