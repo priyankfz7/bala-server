@@ -22,14 +22,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/mail", (req, res) => {
-  const { name, email, phone, course, classname, school, location } = req.body;
+  const { name, phone, course, classname, school, location } = req.body;
+  console.log(req.body);
   let delForSir = {
     from: "priyank764fz7@gmail.com",
     to: "priyank764fz7@gmail.com",
     subject: "New Student Reached Out To You!!!",
     html: mailToSir({
       name,
-      email,
       phone,
       course,
       school,
@@ -40,13 +40,12 @@ app.post("/mail", (req, res) => {
   mailTransporter.sendMail(delForSir, (err) => {
     if (err) {
       console.log(err);
-      return res.status(404).send({ msg: "something went wrong" });
+      return res.send({ msg: "something went wrong" });
     } else {
       console.log("email has sent to sir");
+      res.send({ msg: "Thank you for filling out the form" });
     }
   });
-
-  res.send({ msg: "Thank you for filling out the form" });
 });
 
 app.listen(8080, async () => {
