@@ -26,7 +26,7 @@ app.post("/mail", (req, res) => {
   console.log(req.body);
   let delForSir = {
     from: "priyank764fz7@gmail.com",
-    to: "priyank764fz7@gmail.com",
+    to: "Gaganjaggica1@gmail.com",
     subject: "New Student Reached Out To You!!!",
     html: mailToSir({
       name,

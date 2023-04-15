@@ -67,7 +67,7 @@ let mailToSir = ({
   </head>
   <body>
   <div class="container">
-      <h1 class="title">Bala Coaching Classes | Commerce</h1>
+      <h1 class="title">Bala | Commerce | Classes</h1>
 
       <div class="message">
         <h2>😀 New Student Details!!!</h2>
