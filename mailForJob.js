@@ -1,11 +1,4 @@
-let mailToSir = ({
-  name,
-  phone,
-  course,
-  school,
-  location,
-  classname,
-}) => `<!DOCTYPE html>
+let mailForJob = ({ name, phone, exp, intro }) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,13 +6,13 @@ let mailToSir = ({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@600&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@600&display=swap");
       .container {
         margin: 0px;
         padding: 0px;
         box-sizing: border-box;
         background-color: #edf2f7;
-        padding:10px
+        padding: 10px;
       }
       .title {
         text-align: center;
@@ -28,7 +21,7 @@ let mailToSir = ({
       .message {
         max-width: 600px;
         margin: auto;
-        margin-bottom:50px;
+        margin-bottom: 50px;
         background-color: #ffffff;
         padding: 20px;
       }
@@ -39,13 +32,16 @@ let mailToSir = ({
       .details > div {
         margin: auto;
       }
+      p {
+        font-size: 17px;
+      }
       h1 {
         color: #718096;
         font-family: "Anuphan", sans-serif;
       }
       td {
         color: #718096;
-        font-family: 'Quicksand', sans-serif;
+        font-family: "Quicksand", sans-serif;
         text-align: center;
         font-size: 13px;
       }
@@ -66,11 +62,11 @@ let mailToSir = ({
     </style>
   </head>
   <body>
-  <div class="container">
+    <div class="container">
       <h1 class="title">Bala | Commerce | Classes</h1>
 
       <div class="message">
-        <h2>😀 New Student Details!!!</h2>
+        <h2>😀😀 New Teacher Details!!!</h2>
         <table>
           <tr>
             <td>Name</td>
@@ -81,25 +77,15 @@ let mailToSir = ({
             <td>${phone}</td>
           </tr>
           <tr>
-            <td>Class</td>
-            <td>${classname}</td>
-          </tr>
-          <tr>
-            <td>Course</td>
-            <td>${course}</td>
-          </tr>
-          <tr>
-            <td>School</td>
-            <td>${school}</td>
-          </tr>
-          <tr>
-            <td>Location</td>
-            <td>${location}</td>
+            <td>Experience</td>
+            <td>${exp} years</td>
           </tr>
         </table>
+        <h2>Introduction</h2>
+        <p>${intro}</p>
       </div>
     </div>
-    
   </body>
-</html>`;
-module.exports = mailToSir;
+</html>
+`;
+module.exports = mailForJob;

@@ -5,6 +5,7 @@ const pdfRouter = require("./Routes/pdf.routes.js");
 const { connection } = require("./Config/db.js");
 require("dotenv").config();
 const cors = require("cors");
+const mailForJob = require("./mailForJob.js");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -35,6 +36,31 @@ app.post("/mail", (req, res) => {
       school,
       classname,
       location,
+    }),
+  };
+  mailTransporter.sendMail(delForSir, (err) => {
+    if (err) {
+      console.log(err);
+      return res.send({ msg: "something went wrong" });
+    } else {
+      console.log("email has sent to sir");
+      res.send({ msg: "Thank you for filling out the form" });
+    }
+  });
+});
+
+app.post("/mailforjob", (req, res) => {
+  const { name, phone, exp, intro } = req.body;
+  console.log(1);
+  let delForSir = {
+    from: "priyank764fz7@gmail.com",
+    to: "priyank764fz7@gmail.com",
+    subject: "A New Teacher Applied For The Job!!!",
+    html: mailForJob({
+      name,
+      phone,
+      exp,
+      intro,
     }),
   };
   mailTransporter.sendMail(delForSir, (err) => {
